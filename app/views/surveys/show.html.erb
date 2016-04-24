@@ -1,0 +1,4 @@
+<h1><%= @survey.name %></h1>
+<% @survey.questions.each do |question| %>
+  <p><%= question.phrase %></p>
+<% end %>

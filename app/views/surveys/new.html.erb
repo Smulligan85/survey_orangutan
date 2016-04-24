@@ -1,0 +1,10 @@
+<h1>New Survey</h1>
+<%= form_for (@survey) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.fields_for :questions do |ff| %>
+    <%= ff.label :phrase %>
+    <%= ff.text_field :phrase %><br>
+  <% end %>
+  <%= f.submit %>
+<% end %>
