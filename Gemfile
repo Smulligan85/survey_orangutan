@@ -13,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'pry'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'launchy'  #to use save_and_open_page
+  gem "rails-erd"
 end
 
 group :development do

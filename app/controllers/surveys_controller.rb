@@ -16,10 +16,16 @@ class SurveysController < ApplicationController
   end
 
   def update
-    @survey = Survey.update(survey_params)
+    @survey = Survey.find(params[:id])
+    @survey.update(survey_params)
+    raise @survey.inspect
   end
 
   def show
+    @survey = Survey.find(params[:id])
+    #@survey.questions.each do |question|
+      #question.answers.build
+    #end
   end
 
   def index
@@ -33,7 +39,7 @@ class SurveysController < ApplicationController
   end
 
   def survey_params
-    params.require(:survey).permit(:name, questions_attributes: [:phrase])
+    params.require(:survey).permit(:name, questions_attributes: [:phrase, answers_attributes: [:name]])
   end
 
 end

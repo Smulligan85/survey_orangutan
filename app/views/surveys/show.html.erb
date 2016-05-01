@@ -1,4 +1,22 @@
+
 <h1><%= @survey.name %></h1>
-<% @survey.questions.each do |question| %>
-  <p><%= question.phrase %></p>
-<% end %>
+<%=form_for(@survey) do |f|%>
+  <% @survey.questions.each do |question| %>
+  <p><%= question.phrase %></p><br><br> 
+
+  Answer:
+  <ul>
+    <%= f.fields_for :answers, question.answers.build do |answer| %>
+      <li>
+        <%= answer.label :name %>
+        <%= answer.text_field :name %>
+      </li>
+    <% end %>
+  </ul>
+  
+  <%#=f.label :name%><br>
+  <%#=f.text_field :name%><br><br>
+
+  <% end%>
+  <%=f.submit "Submit Survey"%>
+  <% end %>
